@@ -1,9 +1,13 @@
+import { NativeBaseProvider } from "native-base";
 import React from "react";
-import { SafeAreaView } from "react-native";
 import { Navigation } from "./navigation";
 
 const App = () => {
-  return <Navigation />;
+  return (
+    <NativeBaseProvider>
+      <Navigation />
+    </NativeBaseProvider>
+  );
 };
 
 export default App;
