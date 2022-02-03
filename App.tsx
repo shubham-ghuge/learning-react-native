@@ -1,31 +1,14 @@
-import axios from "axios";
-import { FlatList, NativeBaseProvider } from "native-base";
-import React, { useEffect } from "react";
-import { ServerProductResponse } from "./cart/types";
-import Contacts from "./flatlists";
-import Card from "./flatlists/components/card";
-import data from "./flatlists/data";
+import { NativeBaseProvider } from "native-base";
+import React from "react";
+import CartContextProvider from "./cart/contexts";
 import { Navigation } from "./navigation";
 
 const App = () => {
-  async function fetchData() {
-    try {
-      const { data } = await axios.get<ServerProductResponse>(
-        "https://farmers-grocery-v2.herokuapp.com/products"
-      );
-      console.debug(data);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
   return (
     <NativeBaseProvider>
-      <Navigation />
+      <CartContextProvider>
+        <Navigation />
+      </CartContextProvider>
     </NativeBaseProvider>
   );
 };

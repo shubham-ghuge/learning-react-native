@@ -11,12 +11,13 @@ export function cartReducer(state: StateType, action: ActionType): StateType {
         products: state.products.map((item) => {
           if (item._id === productID) {
             item.isInCart = true;
+            console.debug("here krdiya true", item);
             return item;
           }
           return item;
         }),
       };
-      
+
     case "UPDATE_QUANTITY":
       return {
         ...state,

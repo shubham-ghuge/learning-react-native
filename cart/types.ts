@@ -39,7 +39,7 @@ export type ProductData = {
   categoryId: string;
   price: number;
   discount: number;
-  imgUrl: URL;
+  imgUrl: string;
   farmerId: string;
   createdAt: string;
   updatedAt: string;
